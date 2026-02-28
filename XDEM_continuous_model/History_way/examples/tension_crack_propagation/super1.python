@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH -J XDEM
+#SBATCH -p a01
+#SBATCH -N 1
+#SBATCH -o stdout.XDEM
+#SBATCH -e stderr.XDEM
+#SBATCH --no-requeue
+#SBATCH --gres=gpu:1 #根据需要设置，只使用CPU此行省略
+ 
+python Tension_XDEM.py #具体的python命令 
