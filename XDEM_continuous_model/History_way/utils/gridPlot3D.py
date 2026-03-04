@@ -6,6 +6,23 @@ mpl.rcParams['figure.dpi'] = 200
 from mpl_toolkits.mplot3d import Axes3D
 from pyevtk.hl import gridToVTK 
 
+def plotForceDisp(fdGraph,figHeight,figWidth):           
+    
+    filename = "Force-Displacement"
+    plt.figure(figsize=(figWidth, figHeight))
+    plt.plot(fdGraph[:,0], fdGraph[:,1])
+    plt.xticks(fontsize=12)
+    plt.yticks(fontsize=12)
+    plt.xlabel('Displacement',fontweight='bold',fontsize=14)
+    plt.ylabel('Force',fontweight='bold',fontsize=14)
+    plt.tight_layout()
+    plt.savefig(filename + ".pdf", dpi=700, facecolor='w', edgecolor='w', 
+                    transparent = 'true', bbox_inches = 'tight')
+    plt.show()
+    plt.close()
+    
+
+
 def scatterPlot(X_f,figHeight,figWidth,filename):
     
     fig = plt.figure(figsize=(figWidth,figHeight))
@@ -36,6 +53,29 @@ def genGrid(nPred, L, T, H):
     hist = np.zeros((totalPts,1), dtype = np.float32)
     
     return Grid, x, y, z, hist
+
+def plotPhiStrainEnerg_uni(nPred, xGrid, yGrid, zGrid, phi_pred, frac_energy_pred, Hist_pred, iStep):  
+    
+    nx, ny, nz = xGrid.shape
+    phi = phi_pred.reshape(nx, ny, nz)
+    fracEnergy = frac_energy_pred.reshape(nx, ny, nz)
+    Hist = Hist_pred.reshape(nx, ny, nz)
+    filename = 'Phase_Field_Step_' + iStep
+    gridToVTK("./"+filename, xGrid, yGrid, zGrid, pointData = {"Phi" : phi, "Fracture Energy" : fracEnergy,\
+                                                               "History field" : Hist})
+    
+def plotDispStrainEnerg_uni(nPred, xGrid, yGrid, zGrid, u_pred, v_pred, w_pred, elas_energy_pred, iStep):
+    
+    nx, ny, nz = xGrid.shape
+    u = u_pred.reshape(nx, ny, nz)
+    v = v_pred.reshape(nx, ny, nz)
+    w = w_pred.reshape(nx, ny, nz) 
+    disp = (u, v, w)
+    elasEnergy = elas_energy_pred.reshape(nx, ny, nz)
+    filename = 'Elastic_Step_' + iStep
+    gridToVTK("./"+filename, xGrid, yGrid, zGrid, pointData = 
+              {"Displacement" : disp, "Elastic Energy" : elasEnergy})	
+
 
 def plotPhiStrainEnerg(nPred, xGrid, yGrid, zGrid, phi_pred, frac_energy_pred, iStep):   
     
