@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH -J D2
+#SBATCH -p a01
+#SBATCH -N 1
+#SBATCH -o stdout.XDEM_D2
+#SBATCH -e stderr.XDEM_D2
+#SBATCH --no-requeue
+#SBATCH --gres=gpu:1 #根据需要设置，只使用CPU此行省略
+ 
+python edge_bittencourt_crack_uniform_case2.py #具体的python命令 

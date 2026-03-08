@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH -J 3D_1
+#SBATCH -p a01
+#SBATCH -N 1
+#SBATCH -o stdout.Tension_uniform_3D
+#SBATCH -e stderr.Tension_uniform_3D
+#SBATCH --no-requeue
+#SBATCH --gres=gpu:1 #根据需要设置，只使用CPU此行省略
+ 
+python Tension_XDEM_3D.py #具体的python命令 

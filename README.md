@@ -51,7 +51,7 @@ XDEM/
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.11+
 - PyTorch 2.0+
 - NumPy
 - SciPy
