@@ -142,7 +142,3 @@ If you find this work useful, please cite:
 This project is licensed under the [MIT License](XDEM_discrete_model/LICENSE).
 
 ---
-
-## Acknowledgments
-
-This implementation builds upon related work including [DENNs: Discontinuity-Embedded Neural Networks](https://www.sciencedirect.com/science/article/pii/S0045782525004566), and extends it with the Extended Deep Energy Method described in the XDEM paper.
