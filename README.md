@@ -2,11 +2,13 @@
 
 Towards Unified AI-Driven Fracture Mechanics
 
-[![arXiv](https://img.shields.io/badge/arXiv-2511.05888-b31b1b.svg)](https://arxiv.org/abs/2511.05888)
+Official publication: [Nature Communications](https://www.nature.com/articles/s41467-026-76748-1)
 
 This repository implements the **Extended Deep Energy Method (XDEM)**, a unified AI-driven framework for fracture mechanics. XDEM incorporates both displacement discontinuities and crack-tip asymptotics (Williams expansion) in the discrete setting, and flexibly couples displacement and phase fields in the continuous setting, enabling accurate fracture predictions using uniformly distributed, relatively sparse collocation points.
 
-> **Paper**: [Towards Unified AI-Driven Fracture Mechanics: The Extended Deep Energy Method (XDEM)](https://arxiv.org/abs/2511.05888)
+> **Paper**: [Towards unified AI-driven fracture mechanics: the extended deep energy method (XDEM)](https://doi.org/10.1038/s41467-026-76748-1), *Nature Communications* 17, 8492 (2026)
+
+![XDEM graphical abstract](XDEM_graphic_abstract.png)
 
 ---
 
@@ -25,6 +27,11 @@ This repository implements the **Extended Deep Energy Method (XDEM)**, a unified
 
 ```
 XDEM/
+├── XDEM.pdf                  # Published main article
+├── supplementary.pdf         # Supplementary information
+├── XDEM_graphic_abstract.pdf # Graphical abstract
+├── XDEM_graphic_abstract.png # Graphical abstract preview for README
+│
 ├── XDEM_discrete_model/     # Discrete crack model
 │   ├── Embedding.py         # Crack surface embedding (displacement discontinuity)
 │   ├── Embedding_bit.py     # Crack-tip asymptotics embedding (Williams functions)
@@ -120,8 +127,11 @@ If you find this work useful, please cite:
 @article{wang2025xdem,
   title={Towards Unified AI-Driven Fracture Mechanics: The Extended Deep Energy Method (XDEM)},
   author={Wang, Yizheng and Lin, Yuzhou and Goswami, Somdatta and Zhao, Luyang and Zhang, Huadong and Bai, Jinshuai and Anitescu, Cosmin and Eshaghi, Mohammad Sadegh and Zhuang, Xiaoying and Rabczuk, Timon and Liu, Yinghua},
-  journal={arXiv preprint arXiv:2511.05888},
-  year={2025}
+  journal={Nature Communications},
+  volume={17},
+  pages={8492},
+  year={2026},
+  doi={10.1038/s41467-026-76748-1}
 }
 ```
 
